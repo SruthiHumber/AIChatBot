@@ -19,7 +19,20 @@
         <artifactId>mysql-connector-java</artifactId>
         <version>8.0.28</version>
     </dependency>
+   <!-- Jakarta Persistence API -->
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
 
+        <!-- Jakarta Servlet API -->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
+            <scope>provided</scope>
+        </dependency>
     <!-- If you use annotations for entity mappings -->
     <dependency>
         <groupId>javax.persistence</groupId>

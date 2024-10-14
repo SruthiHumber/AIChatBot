@@ -2,6 +2,7 @@ package Service;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import Repository.Conversation;
 import Repository.HibernateUtil;
@@ -42,6 +43,19 @@ public class ConversationDAO {
             session.close(); 
         }
         return conversation;
+    }
+    
+    public List<Conversation> getAllConversations() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        List<Conversation> conversations = null;
+        try {
+            String hql = "FROM Conversation";  // HQL query to fetch all Conversation records
+            Query<Conversation> query = session.createQuery(hql, Conversation.class);
+            conversations = query.getResultList();  // Fetch all results
+        } finally {
+            session.close();  // Close session
+        }
+        return conversations;
     }
 
 }
